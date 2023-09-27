@@ -1,1 +1,8 @@
-.env
+# .env
+*
+!conf/
+!Dockerfile
+!.gitignore
+!php
+!nginx
+!docker-compose.yaml

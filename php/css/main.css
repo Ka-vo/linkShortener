@@ -10,3 +10,8 @@ form {
   margin-top: 200px;
   width: 300px;
 }
+
+.block-button {
+  display: flex;
+  justify-content: space-between;
+}
