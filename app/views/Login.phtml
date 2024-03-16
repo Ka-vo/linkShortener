@@ -4,10 +4,10 @@ session_start();
 $login = $_POST['login'];
 $password = sha1($_POST['password']);
 
-require "db.php";
+require_once "db.php";
 
 
-$db = databace();
+$db = $dbh;
 if (!$db) {
 ?>
   <link rel="stylesheet" href="./css/main.css">
