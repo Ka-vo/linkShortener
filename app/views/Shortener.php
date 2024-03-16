@@ -1,5 +1,36 @@
 <?php
+
 session_start();
+
+$LONGURL = $_POST['longURL'];
+
+require "db.php";
+// $res = $dbh->query("select table_name, column_name from information_schema.columns where table_schema='public'");
+
+// $chars = "123456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+
+$sql = 'INSERT INTO url(longurl, shorturl) VALUES(:name, :short)';
+$stmt = $dbh->prepare($sql);
+
+$stmt->bindValue(':name', $LONGURL);
+$stmt->bindValue(':short', " ");
+
+//if 
+$stmt->execute();
+$LONGURL = null;
+if ($stmt == true) {
+  echo "Информация занесена в базу данных";
+} else {
+  echo "Информация не занесена в базу данных";
+}
+
+$res = $dbh->query("select * from url");
+
+# Выведем полученные строки
+while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
+  echo ($row["longurl"]);
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +51,7 @@ session_start();
     <form method="post">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Enter your link</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="login">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="longURL">
       </div>
       <div class="block-button">
         <div><button type="submit" class="btn btn-primary" name="submit">Submit</button></div>

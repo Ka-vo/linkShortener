@@ -1,2 +1,4 @@
-database-data/*
-.env
+database-data/
+app/views/.env
+vendor/
+/vendor/

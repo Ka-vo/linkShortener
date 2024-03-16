@@ -1,0 +1,15 @@
+{
+    "name": "mrnob/link_shortener",
+    "description": "'test/link_shortener'",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app\\"
+        }
+    },
+    "authors": [
+        {
+            "name": "ks"
+        }
+    ],
+    "require": {}
+}
